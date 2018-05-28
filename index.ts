@@ -32,3 +32,48 @@ function find_the_string(char_: string) {
     return flag;
 };
 
+class Encipher {
+    private encipher_string: string;
+    public prepare_key(str: string): number {
+        if (str == " " || str == null) {
+            return 0;
+        }
+        else {
+            str.split("").map(x => x.toUpperCase()).join("");
+            return 1;
+        };
+    };
+    public encrpty(data: string): void | ReferenceError {
+        if (this.prepare_key(data) == 0) {
+            return new ReferenceError("The input value that unexpect");
+        }
+        let characters = [];
+        let i = 65;
+        while (i++ < 90) {
+            characters.push(i)
+        };
+        const comparet_chars: Array<string> = characters.map(x => String.fromCharCode(x).toUpperCase());
+        const comparet_data: Array<string> = comparet_chars
+            .filter(el => data.split("")
+                .some(x => x == el) &&
+                (el.charCodeAt(0) > 65 && el.charCodeAt(0) < 90))
+        const split_data = data.split("");
+        let index = 0;
+        while (index++ < comparet_data.length) {
+            split_data.push(comparet_data[index]);
+        };
+        let cpy_split_data = [...split_data];
+        let collect_comparet_data: Array<number> = [];
+        for (let comparet_chars_index = 0; comparet_chars_index < comparet_chars.length; comparet_chars_index++) {
+            for (let cpy_split_data_index = 0; cpy_split_data_index < data.length; cpy_split_data_index++) {
+                if (comparet_chars[comparet_chars_index] === data[cpy_split_data_index]) {
+                    collect_comparet_data.push(comparet_chars_index);
+                };
+            };
+        };
+        cpy_split_data.filter((x, index) => {
+            collect_comparet_data.map(number => { })
+        })
+    };
+};
+

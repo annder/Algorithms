@@ -31,3 +31,58 @@ function find_the_string(char_) {
     return flag;
 }
 ;
+var Encipher = /** @class */ (function () {
+    function Encipher() {
+    }
+    Encipher.prototype.prepare_key = function (str) {
+        if (str == " " || str == null) {
+            return 0;
+        }
+        else {
+            str.split("").map(function (x) { return x.toUpperCase(); }).join("");
+            return 1;
+        }
+        ;
+    };
+    ;
+    Encipher.prototype.encrpty = function (data) {
+        if (this.prepare_key(data) == 0) {
+            return new ReferenceError("The input value that unexpect");
+        }
+        var characters = [];
+        var i = 65;
+        while (i++ < 90) {
+            characters.push(i);
+        }
+        ;
+        var comparet_chars = characters.map(function (x) { return String.fromCharCode(x).toUpperCase(); });
+        var comparet_data = comparet_chars
+            .filter(function (el) { return data.split("")
+            .some(function (x) { return x == el; }) &&
+            (el.charCodeAt(0) > 65 && el.charCodeAt(0) < 90); });
+        var split_data = data.split("");
+        var index = 0;
+        while (index++ < comparet_data.length) {
+            split_data.push(comparet_data[index]);
+        }
+        ;
+        var cpy_split_data = split_data.slice();
+        var collect_comparet_data = [];
+        for (var comparet_chars_index = 0; comparet_chars_index < comparet_chars.length; comparet_chars_index++) {
+            for (var cpy_split_data_index = 0; cpy_split_data_index < data.length; cpy_split_data_index++) {
+                if (comparet_chars[comparet_chars_index] === data[cpy_split_data_index]) {
+                    collect_comparet_data.push(comparet_chars_index);
+                }
+                ;
+            }
+            ;
+        }
+        ;
+        cpy_split_data.filter(function (x, index) {
+            collect_comparet_data.map(function (number) { });
+        });
+    };
+    ;
+    return Encipher;
+}());
+;
