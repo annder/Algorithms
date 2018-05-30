@@ -86,3 +86,20 @@ var Encipher = /** @class */ (function () {
     return Encipher;
 }());
 ;
+var Number_compose = /** @class */ (function () {
+    function Number_compose() {
+    }
+    return Number_compose;
+}());
+var Long_number = /** @class */ (function () {
+    function Long_number() {
+        this.joint_number = this.connection_number(new Number_compose());
+    }
+    Long_number.prototype.connection_number = function (val) {
+        var joint = (val.column_number + val.change_number + val.staion_number);
+        return parseInt(joint);
+    };
+    ;
+    return Long_number;
+}());
+;

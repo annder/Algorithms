@@ -77,3 +77,17 @@ class Encipher {
     };
 };
 
+
+class Number_compose {
+    public column_number: string;
+    public change_number: string;
+    public staion_number: string;
+}
+class Long_number {
+    public joint_number: number = this.connection_number(new Number_compose());
+    public connection_number(val: Number_compose): number {
+        const joint: string = (val.column_number + val.change_number + val.staion_number);
+        return parseInt(joint);
+    };
+    
+};
