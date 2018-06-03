@@ -103,3 +103,16 @@ var Long_number = /** @class */ (function () {
     return Long_number;
 }());
 ;
+function cat_array(array_, other_array) {
+    var lenght_ = array_.length;
+    var long_lenght = other_array.length + lenght_;
+    var other_array_lenght = other_array.length;
+    var index = 0;
+    for (index = 0, lenght_; lenght_ < long_lenght; lenght_++, index++) {
+        array_[lenght_] = other_array[index];
+    }
+    return array_;
+}
+;
+var result = cat_array([1], [2]);
+console.log(result);

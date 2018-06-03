@@ -6,8 +6,8 @@ function isPalirome(string: string) {
     if (isOdd(string.length)) {
         return new Error("It is not Palirome!");
     }
-    const middle_char = ~~(len / 2);
-    let flag = 0;
+    const middle_char: number = ~~(len / 2);
+    let flag: number = 0;
     for (index_string; index_string < middle_char; index_string++ , len--) {
         if ((string[index_string]) == (string[len])) {
             flag++;
@@ -89,5 +89,18 @@ class Long_number {
         const joint: string = (val.column_number + val.change_number + val.staion_number);
         return parseInt(joint);
     };
-    
 };
+
+function cat_array(array_: Array<number>, other_array: Array<number>): Array<number> {
+    let lenght_: number = array_.length;
+    const long_lenght: number = other_array.length + lenght_;
+    const other_array_lenght: number = other_array.length;
+    let index: number = 0;
+    for (index = 0, lenght_; lenght_ < long_lenght; lenght_++ , index++) {
+        array_[lenght_] = other_array[index];
+    }
+    return array_;
+};
+
+let result: Array<number> = cat_array([1], [2]);
+console.log(result);
