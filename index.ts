@@ -103,4 +103,68 @@ function cat_array(array_: Array<number>, other_array: Array<number>): Array<num
 };
 
 let result: Array<number> = cat_array([1], [2]);
-console.log(result);
+
+class Statistic_String {
+    input: string;
+    constructor(input: string) {
+        this.input = input;
+    }
+    private isColtroal_string(): number {
+        let result = 0;
+        const store_string: Array<string> = ["\a", "\f", "\r", "\v", "\""];
+        return result;
+    };
+}
+
+
+
+////////////////////
+
+function toASCII(arg: number | string): number {
+    if (typeof arg === "number") {
+        return arg + 48;
+    };
+    if (typeof arg == "string") {
+        return arg.charCodeAt(0)
+    };
+}
+
+function compare_char_number(compare_number_A: string | number, compare_number_B: string | number): void {
+    let compare_number_ascii_A = toASCII(compare_number_A);
+    let compare_number_ascii_B = toASCII(compare_number_B);
+    if (compare_number_A < compare_number_ascii_B) {
+        let Temp_ = 0;
+        Temp_ = compare_number_ascii_A;
+        compare_number_ascii_A = compare_number_ascii_B;
+        compare_number_ascii_B = Temp_;
+    };
+};
+
+function encode_asscii(ascii: number): string | number {
+    if (ascii > 49) {
+        return ascii - 49;
+    }
+    else {
+        String.fromCharCode(ascii);
+    };
+};
+
+function encoding_string_number_array(array_: Array<number>): Array<string | number> {
+    const len = array_.length;
+    let result: Array<string | number> = [];
+    for (let i = 0; i < len; i++) {
+        result.push(encode_asscii(array_[i]));
+    };
+    return result;
+};
+
+function All_Sort(any_array: Array<string> | Array<number>, lenght_: number,
+    compare: (compare_number_A: string | number, compare_number_B: string | number) => void): Array<string | number> {
+    for (let i = 0; i < lenght_; i++) {
+        compare(any_array[i], any_array[i + 1]);
+    };
+    console.log(any_array);
+    return any_array;
+};
+
+All_Sort([12, 3, 123], 3, compare_char_number)
