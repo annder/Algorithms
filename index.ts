@@ -167,4 +167,3 @@ function All_Sort(any_array: Array<string> | Array<number>, lenght_: number,
     return any_array;
 };
 
-All_Sort([12, 3, 123], 3, compare_char_number)
